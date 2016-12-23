@@ -1,0 +1,34 @@
+<div class="jumbotron">
+    <form ng-submit="create()" class="form-horizontal" name="category-form" style="margin-top: 32px;">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">New Category</h3>
+            </div>
+            <div class="panel-body" style="padding-top: 10px;">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="col-sm-3">
+                            <label class="control-label" for="name">Category</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="name" ng-model="category.name" placeholder="Category(Must be unique)" required="required" min="2"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="container">
+                <div class="row form-group">
+                    <div class="col-sm-3">
+                        <button type="button" class="btn btn-primary" ng-disabled="!category.name" ng-click="createNewCategory(category)">Save Category
+                        </button>
+                    </div>
+                    <div class="col-sm-3">
+                        <a type="button" class="btn btn-default" href="#/category">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

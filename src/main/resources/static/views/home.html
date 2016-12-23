@@ -1,0 +1,23 @@
+<div class="jumbotron">
+    <div class="row" style="margin-top: 64px;">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="active" ng-repeat="category in categorys">
+                    <div class="col-sm-3">
+                        <input type="radio" class="form-control" ng-model="selectedCategory" ng-change="getProduct(category.name)" value="category.name" name="category.name" />
+                    </div>
+                    <div class="col-sm-9">
+                        <h3 class="">{{category.name}}</h3>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-9">
+            <ul class="nav nav-sidebar">
+                <li class="active" ng-repeat="category in categorys2">
+                    <h3 class="">{{category.name}}</h3>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
