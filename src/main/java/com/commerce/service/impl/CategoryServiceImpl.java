@@ -1,12 +1,10 @@
 package com.commerce.service.impl;
 
-import com.commerce.exception.CategoryNotFoundException;
 import com.commerce.domain.Category;
-import com.commerce.repository.CategoryRepository;
-import com.commerce.repository.ProductRepository;
+import com.commerce.repository.CategoryJpaRepository;
+import com.commerce.repository.ProductJpaRepository;
 import com.commerce.service.CategoryService;
 import com.commerce.service.util.CategoryList;
-import com.commerce.service.util.ProductList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,32 +16,24 @@ import org.springframework.stereotype.Service;
 public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
-    CategoryRepository categoryRepository;
+    CategoryJpaRepository categoryJpaRepository;
 
     @Autowired
-    ProductRepository productRepository;
+    ProductJpaRepository productRepository;
 
     @Override
     public Category save(Category data) {
-        return categoryRepository.save(data);
+        return categoryJpaRepository.save(data);
     }
 
     @Override
     public Category getCategoryByName(String name) {
-        return categoryRepository.getCategoryByName(name);
+        return categoryJpaRepository.getCategoryByName(name);
     }
 
     @Override
     public CategoryList findAll() {
-        return new CategoryList(categoryRepository.findAll());
+        return new CategoryList(categoryJpaRepository.findAll());
     }
 
-    @Override
-    public ProductList getAllProductList(String categoryId) {
-        Category category = categoryRepository.findOne(categoryId);
-        if ( category == null ) {
-            throw new CategoryNotFoundException();
-        }
-        return new ProductList(categoryId, productRepository.getProductByCategoryId(categoryId));
-    }
 }

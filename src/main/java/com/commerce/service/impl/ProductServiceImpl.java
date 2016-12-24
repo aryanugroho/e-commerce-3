@@ -1,10 +1,13 @@
 package com.commerce.service.impl;
 
 import com.commerce.domain.Product;
-import com.commerce.repository.ProductRepository;
+import com.commerce.repository.ProductJpaRepository;
+import com.commerce.repository.impl.ProductDaoImpl;
 import com.commerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by suat on 12/24/16.
@@ -12,20 +15,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    ProductRepository productRepository;
+    ProductJpaRepository productJpaRepository;
+    ProductDaoImpl repository;
 
     @Autowired
-    public ProductServiceImpl(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public ProductServiceImpl(ProductJpaRepository productJpaRepository, ProductDaoImpl repository) {
+        this.productJpaRepository = productJpaRepository;
+        this.repository = repository;
     }
 
     @Override
     public Product save(Product data) {
-        return productRepository.save(data);
+        return productJpaRepository.save(data);
     }
 
     @Override
-    public Product getById(String productId) {
-        return productRepository.findOne(productId);
+    public List<Product> getByCategoryName(String name) {
+        return repository.getByCategoryName(name);
     }
+
+
 }

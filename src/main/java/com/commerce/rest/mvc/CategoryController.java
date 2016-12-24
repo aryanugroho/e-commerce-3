@@ -1,17 +1,14 @@
 package com.commerce.rest.mvc;
 
-import com.commerce.exception.CategoryNotFoundException;
-import com.commerce.exception.NotFoundException;
 import com.commerce.domain.Category;
 import com.commerce.rest.resources.CategoryListResource;
 import com.commerce.rest.resources.CategoryResource;
-import com.commerce.rest.resources.ProductListResource;
 import com.commerce.rest.resources.asm.CategoryListResourceAsm;
 import com.commerce.rest.resources.asm.CategoryResourceAsm;
-import com.commerce.rest.resources.asm.ProductListResourceAsm;
 import com.commerce.service.CategoryService;
 import com.commerce.service.util.CategoryList;
-import com.commerce.service.util.ProductList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -30,6 +27,8 @@ import java.net.URI;
 @Controller
 @RequestMapping("/rest/category")
 public class CategoryController {
+
+    static final Logger logger = LoggerFactory.getLogger(CategoryController.class);
 
     CategoryService categoryService;
 
@@ -67,14 +66,4 @@ public class CategoryController {
         return new ResponseEntity<CategoryListResource>(categoryListRes, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{categoryId}/products")
-    public ResponseEntity<ProductListResource> findAllBlogEntries(@PathVariable String categoryIdId) {
-        try {
-            ProductList productList = categoryService.getAllProductList(categoryIdId);
-            ProductListResource res = new ProductListResourceAsm().toResource(productList);
-            return new ResponseEntity<ProductListResource>(res, HttpStatus.OK);
-        } catch (CategoryNotFoundException exception) {
-            throw new NotFoundException(exception);
-        }
-    }
 }

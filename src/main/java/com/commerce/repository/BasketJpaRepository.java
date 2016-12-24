@@ -6,5 +6,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 /**
  * Created by suat on 12/22/16.
  */
-public interface BasketRepository extends MongoRepository<Basket, String> {
+public interface BasketJpaRepository extends MongoRepository<Basket, String> {
 }

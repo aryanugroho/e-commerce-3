@@ -1,13 +1,11 @@
 package com.commerce.domain;
 
-import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by suat on 12/22/16.
  */
-@MappedSuperclass
 public class BaseEntity<P extends Serializable> {
 
     private P id;

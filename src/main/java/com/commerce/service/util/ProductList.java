@@ -13,9 +13,8 @@ public class ProductList {
     private List<Product> products = new ArrayList<Product>();
     private String productId;
 
-    public ProductList( String productId, List<Product> products) {
+    public ProductList(List<Product> products) {
         this.products = products;
-        this.productId = productId;
     }
 
     public List<Product> getProducts() {
