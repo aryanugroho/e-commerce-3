@@ -1,4 +1,4 @@
-package com.commerce.repository;
+package com.commerce.repository.jpa;
 
 import com.commerce.domain.Category;
 import org.springframework.data.mongodb.repository.MongoRepository;
