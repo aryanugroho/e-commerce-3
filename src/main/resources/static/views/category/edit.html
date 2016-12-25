@@ -8,10 +8,21 @@
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="col-sm-3">
-                            <label class="control-label" for="name">Category</label>
+                            <label class="control-label" for="name">Category Name</label>
                         </div>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="name" ng-model="category.name" placeholder="Category(Must be unique)" required="required" min="2"/>
+                            <input type="text" class="form-control" id="name" ng-model="category.name" placeholder="Category Name" required="required" min="2"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="col-sm-3">
+                            <label class="control-label" for="link">Category Permanent Link</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="link" ng-model="category.link" placeholder="Category Permanent Link(Must be unique)" required="required" min="2"/>
                         </div>
                     </div>
                     <div class="col-sm-4"></div>
@@ -21,7 +32,7 @@
             <div class="container">
                 <div class="row form-group">
                     <div class="col-sm-3">
-                        <button type="button" class="btn btn-primary" ng-disabled="!category.name" ng-click="createNewCategory(category)">Save Category
+                        <button type="button" class="btn btn-primary" ng-disabled="!category.name || !category.link" ng-click="createNewCategory(category)">Save Category
                         </button>
                     </div>
                     <div class="col-sm-3">

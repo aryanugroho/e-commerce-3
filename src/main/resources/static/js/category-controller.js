@@ -14,9 +14,10 @@ var CategoryListCtrl = function ($scope, $http, $location, $rootScope) {
     };
 
     $scope.viewCategory = function (category) {
-        $http.get('/rest/category/' + category.name).success(function () {
+        $http.get('/rest/category/' + category.link).success(function () {
+            $rootScope.categoryLink = category.link;
             $rootScope.categoryName = category.name;
-            $location.path("/category/" + category.name);
+            $location.path("/category/" + category.link);
         }).error(function() {
             alert("Error created category");
         });

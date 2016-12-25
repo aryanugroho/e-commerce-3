@@ -1,5 +1,5 @@
 <div class="jumbotron">
-    <form name="addBasketForm" ng-submit="submitProduct(productForm.$valid)" novalidate style="margin-top: 32px;">
+    <form name="addBasketForm" ng-submit="addBasket(addBasketForm.$valid)" novalidate style="margin-top: 32px;">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">Add Basket</h3>
@@ -26,8 +26,8 @@
                                     <label class="control-label">Quantity </label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="quantity" ng-model="basket.quantity"
-                                           placeholder="Quantity" required="required"/>
+                                    <input type="number" class="form-control" id="quantity" ng-model="basket.quantity"
+                                           placeholder="Quantity"  required="required"/>
                                 </div>
                             </div>
                             <div class="col-sm-2">

@@ -18,7 +18,7 @@ app.config(function ($routeProvider) {
             templateUrl: '/views/category/edit.html',
             controller: CategoryCreateCtrl
         })
-        .when('/category/:name', {
+        .when('/category/:link', {
             templateUrl: '/views/category/view.html',
             controller: CategoryViewCtrl
         })
@@ -29,6 +29,10 @@ app.config(function ($routeProvider) {
         .when('/add-basket/:id', {
             templateUrl: '/views/product/add-basket.html',
             controller: ProductAddBasketCtrl
+        })
+        .when('/basket', {
+            templateUrl: '/views/basket/list.html',
+            controller: BasketListCtrl
         })
         .otherwise(
             {

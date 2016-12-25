@@ -22,11 +22,15 @@
                         <thead>
                         <tr>
                             <th>Category Name</th>
+                            <th>Category Permanent Link</th>
+                            <th>Category Created Date</th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="category in categorys | orderBy:predicate">
                                 <td><a href="" data-ng-click="viewCategory(category)"><strong>{{category.name}}</strong></a></td>
+                                <td><strong>{{category.link}}</strong></td>
+                                <td><strong>{{category.createdDate | date : "dd.MM.y HH:mm:ss" }}</strong></td>
                             </tr>
                         </tbody>
                     </table>

@@ -20,7 +20,7 @@
                 <li class="active" ng-repeat="product in products">
                     <div class="col-sm-4 col-md-3">
                         <div class="thumbnail">
-                            <img src="{{product.fileName}}" class="thumb-detail">
+                            <img ng-src="{{product.fileName}}" class="thumb-detail">
                             <div class="caption">
                                 <h3>{{product.name}}</h3>
                                 <p>{{product.detail}}</p>

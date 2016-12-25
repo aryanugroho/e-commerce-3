@@ -1,10 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="jumbotron">
+    <div style="margin-top: 32px;">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Shopping Cart</h3>
+            </div>
+            <div class="container">
+                <div class="row form-group">
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                        <tr ng-repeat="product in products | orderBy:predicate">
+                            <td><img ng-src="{{product.fileName}}" class="thumb-detail"></td>
+                            <td>
+                                <div class="row"><span>{{product.productName}}</span></div>
+                                <div class="row"><span>{{product.productPrice}} TL</span></div>
+                            </td>
+                            <td><label>Qty :  </label><span>{{product.quantity}}</span></td>
+                            <td><label>Total :  </label><span>{{product.totalProductPrice}}</span></td>
+                        </tr>
+                        </tbody>
 
-</body>
-</html>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <span><label ng-show="baskets.quantity">{{baskets.quantity}} items in your basket</label></span>
+                            </div>
+                            <div class="col-sm-8"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-8"></div>
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-6"><label class="label label-info" ng-show="baskets.price">Total : </label>{{baskets.price}}</div>
+                                <div class="col-sm-6">
+                                    <button class="btn btn-lg" ng-show="baskets.price"> Checkout</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6"><label class="label label-info" ng-show="baskets.tax">Tax(%18) : </label>{{baskets.tax}}</div>
+                                <div class="col-sm-6"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -46,12 +46,12 @@ var ProductCreateCtrl = function ($scope, $rootScope, $http, $location, $timeout
             detail: $scope.product.detail,
             size: $scope.product.size,
             color: $scope.product.color,
+            price: $scope.product.price,
             categories: categoryObj
         };
 
         var file = $scope.productFile;
-        /* console.log('file is ' );
-         console.dir(file);*/
+
         var uploadUrl = "/rest/product/add";
         var fd = new FormData();
         fd.append('file', file);
@@ -73,13 +73,36 @@ var ProductCreateCtrl = function ($scope, $rootScope, $http, $location, $timeout
 
 }
 
-var ProductAddBasketCtrl = function ($scope, $rootScope, $http, $rootScope ) {
+var ProductAddBasketCtrl = function ($scope, $rootScope, $http, $location ) {
 
     $scope.productDetails = {};
-    
+    $scope.basket = {};
+
     $scope.fetchProductDetail = function () {
         $http.get('/rest/product/' + $rootScope.productId).success(function (result) {
             $scope.productDetails = result;
+        });
+    };
+
+    $scope.addBasket = function(isValid) {
+
+        var productDetail = {
+            productId: $scope.productDetails.rid,
+            productName: $scope.productDetails.name,
+            fileName: $scope.productDetails.fileName,
+            productPrice: $scope.productDetails.price,
+            quantity: $scope.basket.quantity,
+        };
+
+        var basketData = {
+            name: 'basket',
+            products: [productDetail]
+        }
+
+        $http.post('/rest/basket', basketData).success(function () {
+            $location.path("/basket");
+        }).error(function() {
+            alert("Error created category");
         });
     };
 
