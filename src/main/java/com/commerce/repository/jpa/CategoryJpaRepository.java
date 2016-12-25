@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.repository.Query;
  */
 public interface CategoryJpaRepository extends MongoRepository<Category, String> {
 
-    @Query("{ 'name' : ?0 }")
-    public Category getCategoryByName(String name);
+    @Query("{ 'link' : ?0 }")
+    public Category getCategoryByLink(String link);
 
 }

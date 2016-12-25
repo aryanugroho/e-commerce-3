@@ -1,5 +1,6 @@
 package com.commerce.domain;
 
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
@@ -11,39 +12,60 @@ import java.util.List;
 @Document(collection = "basket")
 public class Basket extends BaseEntity<String> {
 
-    private int quantity;
-    private double price;
-    private List<Product> products;
+    @Indexed( unique=true )
+    private String name;
+    private Number quantity;
+    private Number price;
+    private Number tax;
+    private List<ProductInBasket> products;
 
-    public int getQuantity() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Number getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Number quantity) {
         this.quantity = quantity;
     }
 
-    public double getPrice() {
+    public Number getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Number price) {
         this.price = price;
     }
 
-    public List<Product> getProducts() {
+    public Number getTax() {
+        return tax;
+    }
+
+    public void setTax(Number tax) {
+        this.tax = tax;
+    }
+
+    public List<ProductInBasket> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(List<ProductInBasket> products) {
         this.products = products;
     }
 
     @Override
     public String toString() {
         return "Basket{" +
-                "quantity=" + quantity +
+                "name='" + name + '\'' +
+                ", quantity=" + quantity +
                 ", price=" + price +
+                ", tax=" + tax +
                 ", products=" + products +
                 '}';
     }

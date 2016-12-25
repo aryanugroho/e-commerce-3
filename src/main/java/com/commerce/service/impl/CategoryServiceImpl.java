@@ -8,6 +8,8 @@ import com.commerce.service.util.CategoryList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 /**
  * Created by suat on 12/24/16.
  */
@@ -23,12 +25,13 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category save(Category data) {
+        data.setCreatedDate(new Date());
         return categoryJpaRepository.save(data);
     }
 
     @Override
-    public Category getCategoryByName(String name) {
-        return categoryJpaRepository.getCategoryByName(name);
+    public Category getCategoryByLink(String link) {
+        return categoryJpaRepository.getCategoryByLink(link);
     }
 
     @Override

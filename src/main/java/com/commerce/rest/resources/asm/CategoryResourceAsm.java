@@ -21,6 +21,8 @@ public class CategoryResourceAsm extends ResourceAssemblerSupport<Category, Cate
     public CategoryResource toResource(Category category) {
         CategoryResource resources = new CategoryResource();
         resources.setName(category.getName());
+        resources.setLink(category.getLink());
+        resources.setCreatedDate(category.getCreatedDate());
         resources.add(linkTo(methodOn(CategoryController.class).getCategoryByValue(category.getId())).withSelfRel());
         return resources;
     }

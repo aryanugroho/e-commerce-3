@@ -20,6 +20,7 @@ public class ProductResourceAsm extends ResourceAssemblerSupport<Product, Produc
     @Override
     public ProductResource toResource(Product product) {
         ProductResource productResource = new ProductResource();
+        productResource.setRid(product.getId());
         productResource.setName(product.getName());
         productResource.setDetail(product.getDetail());
         productResource.setColor(product.getColor());

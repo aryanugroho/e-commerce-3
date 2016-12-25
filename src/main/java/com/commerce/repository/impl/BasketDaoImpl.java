@@ -1,7 +1,7 @@
 package com.commerce.repository.impl;
 
-import com.commerce.domain.Product;
-import com.commerce.repository.ProductDao;
+import com.commerce.domain.Basket;
+import com.commerce.repository.BasketDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,25 +10,22 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 /**
- * Created by suat on 12/24/16.
+ * Created by suat on 12/25/16.
  */
-
 @Repository
-public class ProductDaoImpl implements ProductDao{
+public class BasketDaoImpl implements BasketDao {
 
-    private final Logger logger = LoggerFactory.getLogger(ProductDaoImpl.class);
+    private final Logger logger = LoggerFactory.getLogger(BasketDaoImpl.class);
 
     @Autowired
     MongoTemplate mongoTemplate;
 
-    public List<Product> getByCategoryName (String name) {
+    @Override
+    public Basket findProductsInBasket(String productId) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("categories.name").is(name));
+        query.addCriteria(Criteria.where("products.productId").is(productId));
         logger.info("Query "+ query);
-        return mongoTemplate.find(query, Product.class);
+        return mongoTemplate.findOne(query, Basket.class);
     }
-
 }

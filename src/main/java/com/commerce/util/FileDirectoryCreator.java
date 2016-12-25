@@ -11,7 +11,7 @@ import java.io.IOException;
  */
 public class FileDirectoryCreator {
 
-    final Logger logger = LoggerFactory.getLogger(FileDirectoryCreator.class);
+    private final Logger logger = LoggerFactory.getLogger(FileDirectoryCreator.class);
 
     final String workingDirectory = System.getProperty("user.dir");
     final String fileSeperator = System.getProperty("file.separator");
@@ -27,7 +27,7 @@ public class FileDirectoryCreator {
                 logger.info("Directory is created! : " + file.getAbsolutePath());
                 setFileDirectoryPath(file.getAbsolutePath() + fileSeperator);
             } else {
-                System.out.println("Failed to create directory! : " + file.getAbsolutePath());
+                logger.info("Failed to create directory! : " + file.getAbsolutePath());
             }
         } else {
             setFileDirectoryPath(directoryPath + fileSeperator);

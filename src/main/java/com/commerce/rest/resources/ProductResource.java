@@ -86,6 +86,7 @@ public class ProductResource extends ResourceSupport {
 
     public Product toProduct(){
         Product product = new Product();
+        product.setId(rid);
         product.setName(name);
         product.setDetail(detail);
         product.setColor(color);

@@ -9,7 +9,7 @@ import com.commerce.service.util.CategoryList;
 public interface CategoryService {
 
     Category save (Category data);
-    Category getCategoryByName(String name);
+    Category getCategoryByLink(String link);
     CategoryList findAll();
 
 }

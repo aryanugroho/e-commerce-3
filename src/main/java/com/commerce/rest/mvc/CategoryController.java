@@ -28,7 +28,7 @@ import java.net.URI;
 @RequestMapping("/rest/category")
 public class CategoryController {
 
-    static final Logger logger = LoggerFactory.getLogger(CategoryController.class);
+    private final Logger logger = LoggerFactory.getLogger(CategoryController.class);
 
     CategoryService categoryService;
 
@@ -48,9 +48,9 @@ public class CategoryController {
 
     }
 
-    @RequestMapping( value="/{name}", method = RequestMethod.GET)
-    public ResponseEntity<CategoryResource> getCategoryByValue(@PathVariable String name) {
-        Category category = categoryService.getCategoryByName(name);
+    @RequestMapping( value="/{link}", method = RequestMethod.GET)
+    public ResponseEntity<CategoryResource> getCategoryByValue(@PathVariable String link) {
+        Category category = categoryService.getCategoryByLink(link);
         if (category != null) {
             CategoryResource res = new CategoryResourceAsm().toResource(category);
             return new ResponseEntity<CategoryResource>(res, HttpStatus.OK);

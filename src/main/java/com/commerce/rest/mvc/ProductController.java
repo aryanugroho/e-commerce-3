@@ -37,7 +37,7 @@ import java.util.List;
 @RequestMapping("/rest/product")
 public class ProductController {
 
-    private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
+    private final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
     private ProductService productService;
     private GridFsOperations gridFsOperations;
