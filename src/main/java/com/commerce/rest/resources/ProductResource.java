@@ -17,6 +17,7 @@ public class ProductResource extends ResourceSupport {
     private String color;
     private String size;
     private String fileName;
+    private String price;
     private List<CategoryDto> categories;
 
     public String getRid() {
@@ -67,6 +68,13 @@ public class ProductResource extends ResourceSupport {
         this.categories = categories;
     }
 
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
     public String getFileName() {
         return fileName;
@@ -82,6 +90,7 @@ public class ProductResource extends ResourceSupport {
         product.setDetail(detail);
         product.setColor(color);
         product.setSize(size);
+        product.setPrice(price);
         product.setFileName(fileName);
         product.setCategories(categories);
         return product;

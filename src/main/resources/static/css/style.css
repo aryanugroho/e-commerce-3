@@ -86,6 +86,22 @@ code {
     top: 7px;
 }
 
+.thumb-detail {
+    width: 196px;
+    height: 248px;
+    float: none;
+    position: relative;
+    top: 7px;
+}
+
+.thumb-basket {
+    width: 196px;
+    height: 364px;
+    float: none;
+    position: relative;
+    top: 7px;
+}
+
 form .progress {
     line-height: 15px;
 }

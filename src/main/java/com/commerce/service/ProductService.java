@@ -10,6 +10,7 @@ import java.util.List;
 public interface ProductService {
 
     Product save(Product data);
+    Product getProductDetail(String id);
     List<Product> getByCategoryName (String name);
 
 }

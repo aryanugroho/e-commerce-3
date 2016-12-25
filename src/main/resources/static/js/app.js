@@ -26,6 +26,10 @@ app.config(function ($routeProvider) {
             templateUrl: '/views/product/edit.html',
             controller: ProductCreateCtrl
         })
+        .when('/add-basket/:id', {
+            templateUrl: '/views/product/add-basket.html',
+            controller: ProductAddBasketCtrl
+        })
         .otherwise(
             {
                 redirectTo: '/',

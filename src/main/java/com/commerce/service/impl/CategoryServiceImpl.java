@@ -1,8 +1,8 @@
 package com.commerce.service.impl;
 
 import com.commerce.domain.Category;
-import com.commerce.repository.CategoryJpaRepository;
-import com.commerce.repository.ProductJpaRepository;
+import com.commerce.repository.jpa.CategoryJpaRepository;
+import com.commerce.repository.jpa.ProductJpaRepository;
 import com.commerce.service.CategoryService;
 import com.commerce.service.util.CategoryList;
 import org.springframework.beans.factory.annotation.Autowired;

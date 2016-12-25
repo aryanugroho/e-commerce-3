@@ -16,6 +16,7 @@ public class Product extends BaseEntity<String> {
     private String detail;
     private String color;
     private String size;
+    private String price;
     private String fileName;
 
     private List<CategoryDto> categories;
@@ -60,6 +61,14 @@ public class Product extends BaseEntity<String> {
         this.fileName = fileName;
     }
 
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
     public List<CategoryDto> getCategories() {
         return categories;
     }
@@ -75,6 +84,7 @@ public class Product extends BaseEntity<String> {
                 ", detail='" + detail + '\'' +
                 ", color='" + color + '\'' +
                 ", size='" + size + '\'' +
+                ", price='" + price + '\'' +
                 ", fileName='" + fileName + '\'' +
                 ", categories=" + categories +
                 '}';

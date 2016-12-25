@@ -3,7 +3,7 @@
  */
 'use-strict'
 
-var ProductCreateCtrl = function ($scope, $rootScope, $http, $location, Upload, $timeout, UploadExif ) {
+var ProductCreateCtrl = function ($scope, $rootScope, $http, $location, $timeout ) {
 
 
     $scope.colors = ["Red", "Black", "Blue", "White", "Green"];
@@ -63,38 +63,26 @@ var ProductCreateCtrl = function ($scope, $rootScope, $http, $location, Upload, 
             }
         }).success(function() {
             console.log('success');
+            $location.path("/home");
         }).error(function() {
             alert("Error created product");
         });
     };
-    
-    $scope.createNewProduct = function (product) {
-
-        var sentProduct = {
-            name: product.name,
-            detail: product.detail,
-            size: product.size,
-            color: product.color,
-            categories: categoryObj
-        };
-
-        var fileDetail = {
-            dataUrl: $rootScope.dataUrl,
-            fileName: $rootScope.fileName,
-            fileSize: $rootScope.fileSize,
-            fileType: $rootScope.fileType,
-        };
-
-
-
-        $http.post('/rest/product', sentProduct).success(function () {
-            $location.path("/rest/category/list");
-        }).error(function() {
-            alert("Error created product");
-        });
-    };
-    
 
     $scope.fetchCategoryList();
+
+}
+
+var ProductAddBasketCtrl = function ($scope, $rootScope, $http, $rootScope ) {
+
+    $scope.productDetails = {};
+    
+    $scope.fetchProductDetail = function () {
+        $http.get('/rest/product/' + $rootScope.productId).success(function (result) {
+            $scope.productDetails = result;
+        });
+    };
+
+    $scope.fetchProductDetail();
 
 }

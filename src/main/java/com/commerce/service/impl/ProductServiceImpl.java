@@ -1,8 +1,8 @@
 package com.commerce.service.impl;
 
 import com.commerce.domain.Product;
-import com.commerce.repository.ProductJpaRepository;
 import com.commerce.repository.impl.ProductDaoImpl;
+import com.commerce.repository.jpa.ProductJpaRepository;
 import com.commerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +27,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product save(Product data) {
         return productJpaRepository.save(data);
+    }
+
+    @Override
+    public Product getProductDetail(String id) {
+        return productJpaRepository.findOne(id);
     }
 
     @Override

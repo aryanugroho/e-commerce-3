@@ -24,6 +24,9 @@ public class ProductResourceAsm extends ResourceAssemblerSupport<Product, Produc
         productResource.setDetail(product.getDetail());
         productResource.setColor(product.getColor());
         productResource.setSize(product.getSize());
+        productResource.setFileName(product.getFileName());
+        productResource.setCategories(product.getCategories());
+        productResource.setPrice(product.getPrice());
         Link self = linkTo(ProductController.class).slash(product.getId()).withSelfRel();
         productResource.add(self);
         if(product.getCategories() != null)
